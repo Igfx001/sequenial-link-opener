@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sequential Link Opener</title>
+</head>
+<body>
+    <a href="#" id="openLinks">Open</a>
+
+    <script>
+        // List of links to open
+        const links = [
+            'https://www.highratecpm.com/tbh0xqmice?key=42b7c9fb8271e2b8d073426b3815b6a4',
+            'https://www.highratecpm.com/q7d4kwqy?key=031f3e3d4b502a8785dd4efe56f3352c',
+            'https://www.highratecpm.com/mjrvnj5p?key=47d7ac0e409d4f474233900d445de4cb',
+            'https://www.highratecpm.com/s6yvnrk9m?key=1cc8eb3b3bbb78acec54057575743552',
+            'https://www.highratecpm.com/numdf4gqy?key=b3af43836d2a548d76f0286a05d39d74'
+        ];
+
+        // Function to open links sequentially with delay
+        function openLinksSequentially() {
+            let index = 0;
+
+            function openNextLink() {
+                if (index < links.length) {
+                    window.open(links[index], '_blank');
+                    index++;
+                    setTimeout(openNextLink, 5000); // Wait 5 seconds before opening the next link
+                }
+            }
+
+            openNextLink();
+        }
+
+        // Add event listener to the "Open" link
+        document.getElementById('openLinks').addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default link behavior
+            openLinksSequentially(); // Start opening links
+        });
+    </script>
+</body>
+</html>
